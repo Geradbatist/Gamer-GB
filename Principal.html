@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Videojuegos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="Principal.html">
+                    <img src="logo1.ico" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Tienda.html">Tienda</a></li>
+            </ul>
+            <div class="user-profile">
+                <a href="registro.html">
+                    <img src="usuario.png" alt="Avatar de usuario">
+                </a>
+            </div>
+            <div class="cart-container">
+                <button data-quantity="0" class="btn-cart" id="cart-icon">
+                    <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
+                        <title>icon-cart</title>
+                        <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
+                    </svg>
+                    <span class="quantity"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+            <button id="buy-button">Comprar</button>
+        </div>
+    </div>
+
+<!--hero-->
+    <div class="hero-section" style="background-image: url('dragon\ hero.jpg')">
+        <h1>Bienvenido a GBG</h1>
+        <p>¡Bienvenido a Gamer's Paradise! ¡Descubre las mejores ofertas en videojuegos y accesorios!</p>
+      </div> 
+
+    <!-- Barra de búsqueda, navegación y perfil de usuario -->
+    <div class="search-nav">
+        <div class="search-box">
+            <input type="text" id="buscar-input" placeholder="Buscar en la tienda" onkeyup="buscarJuego()">
+            <button onclick="buscarJuego()">Buscar</button>
+        </div>
+        <nav>
+            <ul class="nav-links1">
+                <li><a href="Descubrir.html">Descubrir</a></li>
+                <li><a href="Explorar.html">Explorar</a></li>
+                <li><a href="Noticias.html">Noticias</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="resultados-busqueda" class="resultados-busqueda"></div>
+
+    <!-- Carrusel y contenido -->
+    <div class="carousel-container">
+        <div class="carousel-large"></div>
+        <div class="carousel-thumbnails">
+            <div class="thumbnail-item" data-juego="Albion Online">
+                <img src="Albion Online.jpg" alt="Albion Online" class="thumbnail">
+            </div>
+            <div class="thumbnail-item" data-juego="Sonic Dash">
+                <img src="Sonic Dash.jpg" alt="Sonic Dash" class="thumbnail">
+            </div>
+            <div class="thumbnail-item" data-juego="Mario Bros">
+                <img src="Mario bros.jpg" alt="Mario Bros" class="thumbnail">
+            </div>
+            <div class="thumbnail-item" data-juego="The Legend of Zelda Links Awakening">
+                <img src="The-Legend-of-Zelda-Links-Awakening.jpg" alt="The Legend of Zelda Links Awakening" class="thumbnail">
+            </div>
+
+            <!-- Agrega más miniaturas aquí -->
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="wrap-footer">
+            <!-- Sobre Nosotros -->
+            <div class="footer-element">
+                <h3>GBG</h3>
+                <p>Somos una tienda de videojuegos dedicada a ofrecerte la mejor experiencia de juego. Descubre, explora y mantente al día con las últimas novedades del mundo de los videojuegos.</p>
+            </div>
+            <!-- Contacto -->
+            <div class="footer-element">
+                <h5>Contacto</h5>
+                <ul>
+                    <li>Móvil: (+507) 600 000 000</li>
+                    <li>Teléfono: (+507) 700 000 000</li>
+                    <li>Email: contacto@tiendavideojuegos.com</li>
+                </ul>
+            </div>
+            <!-- Enlaces Rápidos -->
+            <div class="footer-element">
+                <h5>Enlaces Rápidos</h5>
+                <ul>
+                    <li><a href="Tienda.html">Tienda</a></li>
+                    <li><a href="#asistencia">Asistencia</a></li>
+                    <li><a href="#distribuir">Distribuir</a></li>
+                </ul>
+            </div>
+            <!-- Redes Sociales -->
+            <div class="footer-element rrss">
+                <h5>Redes Sociales</h5>
+                <ul>
+                    <li><a href="#"><img src="faccebok.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="twitter.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="instagram.png" alt="Instagram"></a></li>
+                </ul>
+            </div>
+            <!-- Suscripción al Boletín -->
+            <div class="footer-element">
+                <h5>Suscríbete</h5>
+                <p>Recibe nuestras últimas noticias y ofertas.</p>
+                <form id="subscribe-form">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+        <!-- Créditos del Footer -->
+        <div class="footer-creds">
+            <p>&copy; 2024 Tienda de Videojuegos. Todos los derechos reservados.</p>
+            <ul>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Política de Cookies</a></li>
+                <li><a href="#">Aviso Legal</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

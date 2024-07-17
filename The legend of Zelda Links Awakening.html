@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albion Online</title>
+
+    <style>
+        /* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para la barra de navegación */
+header {
+  padding: 2px;
+  padding-bottom: 1px;
+  background-color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 100px;
+  width: auto;
+}
+
+.nav-links, .nav-links1 {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-right: auto;
+}
+
+.nav-links li {
+  font-size: 40px; /* Ajusta el tamaño del texto */
+}
+
+.nav-links a, .nav-links1 a {
+  text-decoration: none;
+  color: #f2f2f2;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  border: 2px solid #d6cfcf; /* Agrega un borde transparente */
+}
+
+.nav-links a:hover, .nav-links1 a:hover {
+  background-color: #444;
+  color: #ff6f61;
+}
+
+.user-profile img {
+  width: 50px;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+
+.search-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #222;
+}
+
+.search-box input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.search-box button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #575757;
+  color: #f2f2f2;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.search-box button:hover {
+  background-color: #444;
+}
+
+.resultados-busqueda p {
+  cursor: pointer;
+}
+
+.resultados-busqueda p:hover {
+  background-color: #555;
+}
+
+/* Estilos específicos del contenido */
+.area-de-titulo-y-puntuacion {
+    background-color: #444;
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.area-de-titulo-y-puntuacion h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.puntuacion {
+    margin: 10px 0;
+}
+
+.puntuacion span {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    color: darkgrey;
+    font-size: 20px;
+}
+
+.estrella {
+    color: #ffffff;
+}
+
+.estrella.checked {
+    color: yellow;
+}
+
+
+.menus a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.contenido-principal {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.area-de-video {
+    flex: 3;
+    margin-right: 10px;
+}
+
+.area-de-video video {
+    width: 100%;
+    height: auto;
+}
+
+.area-para-mas-video img {
+    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza la transformación y la sombra */
+    cursor: pointer; /* Cambia el cursor a una mano cuando pasa por encima */
+}
+
+.area-para-mas-video img:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.19); /* Añade un efecto de sombra */
+}
+
+.area-de-imagen-del-juego1 {
+    flex: 1;
+    text-align: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.area-de-imagen-del-juego1 img {
+    width: 300px; /* Ajusta el ancho de las imágenes */
+    height: 150px; /* Ajusta la altura de las imágenes */
+    object-fit: cover;
+}
+
+.area-de-imagenes-del-juego {
+    display: flex;
+    flex-direction: column; /* Coloca las imágenes en una columna */
+    align-items: center; /* Centra las imágenes horizontalmente */
+    gap: 10px; /* Espacio entre las imágenes */
+}
+
+.area-de-imagenes-del-juego img {
+    width: 100px; /* Ajusta el ancho de las imágenes */
+    height: 75px; /* Ajusta la altura de las imágenes */
+    object-fit: cover; /* Asegura que las imágenes mantengan su relación de aspecto y se recorten si es necesario */
+}
+
+.informacion-del-juego {
+    background-color: #555;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.informacion-del-juego span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.area-de-compra-del-juego {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.area-de-compra-del-juego img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.informacion-de-compra p {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.precio {
+    margin-bottom: 10px;
+}
+
+.precio-regular {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.precio-oferta {
+    color: yellow;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.carrito-de-compras button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.area-para-mas-video {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Para que las miniaturas se ajusten y pasen a una nueva línea si es necesario */
+}
+
+.area-para-mas-video img {
+    margin: 0 5px;
+    max-width: 100px;
+    height: auto;
+}
+
+/* Estilos para las nuevas secciones */
+.area-genero-funciones {
+    background-color: #444;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.area-genero-funciones p {
+    margin: 0 0 10px;
+}
+
+.generos,
+.funciones {
+    margin-top: 10px;
+}
+
+.generos span,
+.funciones span {
+
+    font-weight: lighter;
+}
+
+.resumen-texto {
+    font-size: 20px;
+}
+
+
+.area-de-imagenes-del-juego {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.area-de-imagenes-del-juego img {
+    margin: 5px;
+    max-width: 100%;
+    height: auto;
+}
+
+/*carrito de compra*/
+.carrito-de-compras {
+    background-color: #333;
+    padding: 20px;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.carrito-de-compras h2 {
+    margin: 0 0 10px 0;
+}
+
+.carrito-de-compras p {
+    margin: 5px 0;
+}
+
+
+
+.form {
+            margin: 1em 0;
+            padding: 1em;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+        .carrito-de-compras {
+            margin-top: 1em;
+            border: 1px solid #ddd;
+            padding: 1em;
+        }
+        .carrito-items {
+            margin-bottom: 1em;
+        }
+        .carrito-total {
+            font-weight: bold;
+        }
+        .mensaje-gracias {
+            display: none;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+            padding: 1em;
+            margin-top: 1em;
+        }
+
+        /*boron de Carrito*/
+.cart-container {
+  position: relative;
+  margin-left: 50x;
+  margin-right: 25px;
+}
+
+.btn-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  position: relative;
+}
+
+.btn-cart::after {
+  content: attr(data-quantity);
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  font-size: 15px;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s linear;
+  top: 115%;
+}
+
+.icon-cart {
+  width: 24.38px;
+  height: 30.52px;
+  transition: .2s linear;
+}
+
+.icon-cart path {
+  fill: rgb(240, 8, 8);
+  transition: .2s linear;
+}
+
+.btn-cart:hover > .icon-cart {
+  transform: scale(1.2);
+}
+
+.btn-cart:hover > .icon-cart path {
+  fill: rgb(186, 34, 233);
+}
+
+.btn-cart:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: 105%;
+}
+
+.quantity {
+ display: none;
+}
+
+#cart-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.cart-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#cart-items {
+    margin: 20px 0;
+}
+
+#buy-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#buy-button:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="Principal.html">
+                    <img src="logo1.ico" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Tienda.html">Tienda</a></li>
+            </ul>
+            <div class="user-profile">
+                <a href="registro.html">
+                    <img src="usuario.png" alt="Avatar de usuario">
+                </a>
+            </div>
+            <div class="cart-container">
+                <button data-quantity="0" class="btn-cart" id="cart-icon">
+                    <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
+                        <title>icon-cart</title>
+                        <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
+                    </svg>
+                    <span class="quantity"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+            <button id="buy-button">Comprar</button>
+        </div>
+    </div>
+    <!-- Barra de búsqueda, navegación y perfil de usuario -->
+    <div class="search-nav">
+        <div class="search-box">
+            <input type="text" id="buscar-input" placeholder="Buscar en la tienda" onkeyup="buscarJuego()">
+            <button onclick="buscarJuego()">Buscar</button>
+        </div>
+        <nav>
+            <ul class="nav-links1">
+                <li><a href="Descubrir.html">Descubrir</a></li>
+                <li><a href="Explorar.html">Explorar</a></li>
+                <li><a href="Noticias.html">Noticias</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="resultados-busqueda" class="resultados-busqueda"></div>
+
+    <div class="area-de-titulo-y-puntuacion">
+        <h1>The legend of Zelda Links Awakening</legend></h1>
+    </div>
+
+    <div class="contenido-principal">
+        <div class="area-de-video">
+            <video id="video-principal" controls autoplay>
+                <source src="zelda/The Legend of Zelda_ Link_s Awakening - Announcement Trailer - Nintendo Switch(720P_60FPS).mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+            <div class="area-para-mas-video">
+                <img src="m5.jpg" alt="Miniatura 1" onclick="cambiarVideo('zelda/The Legend of Zelda_ Link_s Awakening - Announcement Trailer - Nintendo Switch(720P_60FPS).mp4')">
+                <img src="m4.jpg" alt="Miniatura 1" onclick="cambiarVideo('zelda/The Legend of Zelda_ Link_s Awakening - Nintendo Switch Trailer - Nintendo E3 2019(720P_60FPS).mp4')">
+                <img src="m3.jpg" alt="Miniatura 1" onclick="cambiarVideo('zelda/The Legend of Zelda_ Tears of the Kingdom – Official Trailer _2(720P_HD).mp4')">
+            </div>
+
+            <div class="puntuacion" id="puntuacion">
+                <span class="estrella" onclick="valorar(1)">⭐</span>
+                <span class="estrella" onclick="valorar(2)">⭐</span>
+                <span class="estrella" onclick="valorar(3)">⭐</span>
+                <span class="estrella" onclick="valorar(4)">⭐</span>
+                <span class="estrella" onclick="valorar(5)">⭐</span>
+                <span id="valoracion">1.0</span>
+            </div>
+            <div class="menus">
+                <a href="#">Resumen</a>
+
+                <a href="#">Logros</a>
+            </div>
+
+            <div class="resumen-texto">
+                <p>Super Mario Bros.b​ es un videojuego de plataformas desarrollado y publicado por Nintendo para Nintendo Entertainment System (NES) en 1985. El sucesor del juego arcade de 1983 Mario Bros. y el primer juego de la serie Super Mario, se lanzó por primera vez en 1985 para Famicom en Japón. Luego de un lanzamiento limitado en EE. UU. para NES, se transfirió a salas recreativas internacionales para Nintendo Vs. System a principios de 1986. La versión de NES recibió un amplio lanzamiento en Norteamérica ese año y en las regiones PAL en 1987.
+                    Los jugadores controlan a Mario, o a su hermano Luigi (en el modo multijugador), mientras atraviesan el Reino Champiñón para rescatar a la Princesa Toadstool del Rey Koopa (más tarde llamado Bowser). Atraviesan etapas de desplazamiento lateral mientras evitan peligros como enemigos y pozos con la ayuda de potenciadores como Súper Champiñónes, Flores de fuego y la estrella.</p>
+           
+            </div>
+        </div>
+        <div class="area-de-imagen-del-juego1">
+            <img src="m2.jpg" alt="Imagen del Juego">
+            <div class="informacion-del-juego">
+                <span><b>Everyone</b></span>
+                <span>In-Game Purchases (Includes Random Items), Users Interact</span>
+            </div>
+            <div class="area-de-compra-del-juego">
+                <img src="m1.jpg" alt="Clasificación ESRB">
+                <div class="informacion-de-compra">
+                    <p>"¡Sumérgete en la aventura hoy mismo!"</p>
+                    <div class="precio">
+                        <span class="precio-regular">30,90 US$</span>
+                        <span class="precio-oferta">15,99 US$</span>
+                        <p>La oferta finaliza el 20/7/2024 a las 6:00</p>
+                    </div>
+                    <div id="carrito" class="carrito-de-compras">
+                        <button class="boton-comprar" onclick="comprarAhora()">COMPRAR AHORA</button>
+                        <button class="boton-carrito" onclick="addToCart('The legend of Zelda Links Awakening', 5.99)">AÑADIR AL CARRITO</button>
+                        <button class="boton-lista-deseos">+ A LA LISTA DE DESEOS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nueva sección añadida -->
+    <div class="area-genero-funciones">
+        <div class="generos">
+            <span><h3><b>Géneros</b></h3></span>
+            <p>Simulación</p>
+        </div>
+        <div class="funciones">
+            <span><h3><b>Funciones</b></h3></span>
+            <p>Cooperativo, Multijugador, Un solo jugador</p>
+        </div>
+    </div>
+
+    <div class="area-de-imagenes-del-juego">
+        <img src="m4.jpg" alt="Imagen del Juego 1">
+        <img src="m5.jpg" alt="Imagen del Juego 2">
+        <!-- Añadir más imágenes según sea necesario -->
+    </div>
+
+    <!-- Carrito de Compras -->
+    <div id="carrito-detalles" class="carrito-de-compras">
+        <h2>Carrito de Compras</h2>
+        <div id="carrito-items" class="carrito-items"></div>
+        <div id="carrito-total" class="carrito-total"></div>
+    </div>
+
+    <!-- Formulario de Pago -->
+    <div class="form">
+        <h2>Formulario de Pago</h2>
+        <form onsubmit="processPayment(event)">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" name="address" required><br><br>
+            <label for="card">Número de Tarjeta:</label>
+            <input type="text" id="card" name="card" required><br><br>
+            <button type="submit">Pagar</button>
+        </form>
+        <div id="mensaje-gracias" class="mensaje-gracias">
+            <p>¡Gracias por su compra! Será redirigido en breve...</p>
+        </div>
+    </div>
+
+    <script>
+        const juegos = [
+    { nombre: "Albion Online", detalle: "Albion Online.html" },
+    { nombre: "Sonic Dash", detalle: "Sonic Dash.html" },
+    { nombre: "Mario Bros", detalle: "Mario Bros.html" },
+    { nombre: "The legend of Zelda Links Awakening", detalle: "The legend of Zelda Links Awakening.html" }
+];
+
+// Barra de búsqueda funcional
+function buscarJuego() {
+    const input = document.getElementById('buscar-input').value.toLowerCase();
+    const resultados = document.getElementById('resultados-busqueda');
+    resultados.innerHTML = '';
+    if (input) {
+        const juegosFiltrados = juegos.filter(juego => juego.nombre.toLowerCase().includes(input));
+        if (juegosFiltrados.length > 0) {
+            juegosFiltrados.forEach(juego => {
+                const p = document.createElement('p');
+                p.textContent = juego.nombre;
+                p.onclick = () => seleccionarJuego(juego.detalle);
+                resultados.appendChild(p);
+            });
+            resultados.style.display = 'block';
+        } else {
+            resultados.style.display = 'none';
+        }
+    } else {
+        resultados.style.display = 'none';
+    }
+}
+
+// Función para redirigir a los detalles de cada juego
+function seleccionarJuego(detalle) {
+    window.location.href = detalle;
+}
+
+// Función para cambiar el video principal
+function cambiarVideo(videoSrc) {
+    const videoPrincipal = document.getElementById('video-principal');
+    const source = videoPrincipal.querySelector('source');
+    source.src = videoSrc;
+    videoPrincipal.load();
+    videoPrincipal.play();
+}
+
+function valorar(n) {
+    const estrellas = document.querySelectorAll('.puntuacion .estrella');
+    estrellas.forEach((estrella, index) => {
+        if (index < n) {
+            estrella.classList.add('checked');
+        } else {
+            estrella.classList.remove('checked');
+        }
+    });
+    const valoracion = document.getElementById('valoracion');
+    valoracion.textContent = n.toFixed(1);
+}
+
+// Función para actualizar estrellas según la valoración
+function actualizarEstrellas(valoracion) {
+    const estrellas = document.querySelectorAll('.puntuacion .estrella');
+    estrellas.forEach((estrella, index) => {
+        if (index < Math.round(valoracion)) {
+            estrella.classList.add('checked');
+        } else {
+            estrella.classList.remove('checked');
+        }
+    });
+}
+
+
+
+        /*carrito*/
+        let cart = [];
+
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('carrito-items');
+            const cartTotalDiv = document.getElementById('carrito-total');
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p>Tu carrito está vacío.</p>';
+                cartTotalDiv.innerHTML = '';
+                return;
+            }
+            const cartItems = cart.map(item => `<p>${item.product} - $${item.price.toFixed(2)}</p>`).join('');
+            const total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+            cartItemsDiv.innerHTML = cartItems;
+            cartTotalDiv.innerHTML = `<p>Total: $${total}</p>`;
+        }
+
+        function comprarAhora() {
+            addToCart('The legend of Zelda Links Awakening', 15.99);
+            displayCart();
+        }
+
+        function processPayment(event) {
+            event.preventDefault();
+            document.getElementById('mensaje-gracias').style.display = 'block';
+            setTimeout(() => {
+                window.location.href = 'https://zelda.nintendo.com/links-awakening/';
+            }, 5000); // Redirige después de 5 segundos
+            cart = [];
+            displayCart();
+        }
+
+        // Display cart on page load
+        displayCart();
+
+        //funcion de la carretilla
+        document.addEventListener("DOMContentLoaded", function() {
+    const cartIcon = document.getElementById("cart-icon");
+    const cartModal = document.getElementById("cart-modal");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartTotalContainer = document.getElementById("cart-total");
+    const buyButton = document.getElementById("buy-button");
+
+    // Mostrar el modal del carrito
+    cartIcon.onclick = function() {
+        displayCartItems();
+        cartModal.style.display = "block";
+    };
+
+    // Cerrar el modal del carrito
+    closeBtn.onclick = function() {
+        cartModal.style.display = "none";
+    };
+
+    // Cerrar el modal si se hace clic fuera de él
+    window.onclick = function(event) {
+        if (event.target === cartModal) {
+            cartModal.style.display = "none";
+        }
+    };
+
+     // Función para mostrar los productos del carrito
+    function displayCartItems() {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItemsContainer.innerHTML = "";
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const itemDiv = document.createElement("div");
+            itemDiv.innerHTML = `
+                <p>${item.name} - $${item.price} x ${item.quantity}</p>
+            `;
+            cartItemsContainer.appendChild(itemDiv);
+            total += item.price * item.quantity;
+        });
+
+
+        cartTotalContainer.innerHTML = `Total: $${total.toFixed(2)}`;
+        updateCartQuantity();
+    }
+
+     // Actualizar la cantidad del carrito
+     function updateCartQuantity() {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+        cartIcon.setAttribute('data-quantity', totalQuantity);
+    }
+
+      // Acción del botón comprar
+    buyButton.onclick = function() {
+        alert("Compra realizada con éxito!");
+        localStorage.removeItem("cartItems");
+        cartModal.style.display = "none";
+        updateCartQuantity();
+    };
+
+    // Inicializar la cantidad del carrito
+    updateCartQuantity();
+});
+
+// Función para añadir productos al carrito desde otros HTML
+function addToCart(name, price, quantity) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const itemIndex = cartItems.findIndex(item => item.name === name);
+
+    if (itemIndex > -1) {
+        cartItems[itemIndex].quantity += quantity;
+    } else {
+        cartItems.push({ name, price, quantity });
+    }
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    alert("Producto añadido al carrito!");
+    updateCartQuantity();
+}
+
+// Función para actualizar la cantidad del carrito
+function updateCartQuantity() {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+    const cartIcon = document.getElementById("cart-icon");
+    cartIcon.setAttribute('data-quantity', totalQuantity);
+}
+
+         // Función para comprar ahora
+         function comprarAhora() {
+            addToCart('The legend of Zelda Links Awakening', 5.99, 1);
+            alert("Producto añadido al carrito!");
+            displayCartItems();
+        }
+    </script>
+</body>
+</html>

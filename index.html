@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Popular Entre los Videojuegos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('Fondos/m.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #007BFF;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .video-container {
+            margin: 20px 0;
+            position: relative;
+        }
+        .video-container video {
+            width: 100%;
+            max-width: 800px;
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .redirect-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .redirect-button:hover {
+            background-color: #0056b3;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            margin-top: 20px;
+            margin-left: 250px;
+            
+        }
+        .card {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            max-width: calc(100% - 20px);
+            color: #fff;
+            
+        }
+        .card h3 {
+            color: #007BFF;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡El poder de la próxima generación de Videojuegos está en tus manos!</h1>
+        <div class="video-container">
+            <video controls>
+                <source src="pagina_web_HD 720p_MEDIUM_FR30.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+        <div class="button-container">
+            <button class="redirect-button" onclick="redirect()">GBG</button>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        <div class="card">
+            <h3>Misión</h3>
+            <p>Nuestra misión es ofrecer a los jugadores de todo el mundo experiencias de juego inolvidables, llenas de aventuras y desafíos, fomentando la creatividad y la innovación en cada título que desarrollamos.</p>
+        </div>
+        <div class="card">
+            <h3>Visión</h3>
+            <p>Ser la empresa líder en la industria de los videojuegos, reconocida por su compromiso con la calidad, la diversidad y la inclusión, creando un impacto positivo en la vida de nuestros jugadores.</p>
+        </div>
+        <div class="card">
+            <h3>Objetivo</h3>
+            <p>Desarrollar y publicar videojuegos que no solo entretengan, sino que también eduquen y promuevan valores positivos, asegurando que nuestros productos sean accesibles y disfrutables para todas las edades y culturas.</p>
+        </div>
+    </div>
+
+    <script>
+        function redirect() {
+            window.location.href = "Principal.html";
+        }
+    </script>
+</body>
+</html>
